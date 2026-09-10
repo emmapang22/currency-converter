@@ -1,3 +1,4 @@
+import { ArrowLeftRight } from "lucide-react";
 import { currenciesList } from "../data/currencies";
 import { getCurrencyExchangeRate } from "../services/exchangeRateService";
 import { useState } from "react";
@@ -63,7 +64,7 @@ export default function ExchangeCurrencyForm() {
       </fieldset>
 
       <button type="button" onClick={handleSwitchCurrency}>
-        Change
+        <ArrowLeftRight />
       </button>
 
       <fieldset>

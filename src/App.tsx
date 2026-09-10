@@ -1,7 +1,12 @@
 import "./App.css";
+import ExchangeCurrencyForm from "./components/ExchangeCurrencyForm";
 
 function App() {
-  return <></>;
+  return (
+    <>
+      <ExchangeCurrencyForm />
+    </>
+  );
 }
 
 export default App;

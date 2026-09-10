@@ -1,3 +1,4 @@
+import { currenciesList } from "../data/currencies";
 import { getCurrencyExchangeRate } from "../services/exchangeRateService";
 import { useState } from "react";
 
@@ -20,7 +21,7 @@ export default function ExchangeCurrencyForm() {
       firstAmount,
     );
 
-    setSecondAmount(String(data.conversion_result));
+    setSecondAmount(String(parseFloat(data.conversion_result.toFixed(4))));
   };
 
   const handleSwitchCurrency = () => {};
@@ -38,8 +39,9 @@ export default function ExchangeCurrencyForm() {
           value={firstCurrency}
           onChange={(e) => setFirstCurrency(e.target.value)}
         >
-          <option value="SEK">SEK</option>
-          <option value="USD">USD</option>
+          {currenciesList.map((c) => (
+            <option value={c}>{c}</option>
+          ))}
         </select>
 
         <label htmlFor="amount" className="sr-only">
@@ -71,8 +73,9 @@ export default function ExchangeCurrencyForm() {
           value={secondCurrency}
           onChange={(e) => setSecondCurrency(e.target.value)}
         >
-          <option value="SEK">SEK</option>
-          <option value="USD">USD</option>
+          {currenciesList.map((c) => (
+            <option value={c}>{c}</option>
+          ))}
         </select>
 
         <label htmlFor="convertedAmount" className="sr-only">

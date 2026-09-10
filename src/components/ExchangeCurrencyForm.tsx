@@ -24,7 +24,12 @@ export default function ExchangeCurrencyForm() {
     setSecondAmount(String(parseFloat(data.conversion_result.toFixed(4))));
   };
 
-  const handleSwitchCurrency = () => {};
+  const handleSwitchCurrency = () => {
+    setFirstCurrency(secondCurrency);
+    setFirstAmount(secondAmount);
+    setSecondCurrency(firstCurrency);
+    setSecondAmount(firstAmount);
+  };
 
   return (
     <form onSubmit={handleSubmit} className="flex">
